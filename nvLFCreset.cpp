@@ -76,12 +76,20 @@ NvAPI_GetDefaultDisplayId(void)
     return 0;
 }
 
-void resetAdaptiveSync() {
+void disableFrameSplitting() {
     NV_SET_ADAPTIVE_SYNC_DATA
         setAdaptiveSync;
     ZeroMemory(&setAdaptiveSync, sizeof(NV_SET_ADAPTIVE_SYNC_DATA));
     setAdaptiveSync.version = NV_SET_ADAPTIVE_SYNC_DATA_VER;
     setAdaptiveSync.bDisableFrameSplitting = 1;
+    NvAPI_DISP_SetAdaptiveSyncData(displayID, &setAdaptiveSync);
+}
+
+void disableAdaptiveSync() {
+    NV_SET_ADAPTIVE_SYNC_DATA
+        setAdaptiveSync;
+    ZeroMemory(&setAdaptiveSync, sizeof(NV_SET_ADAPTIVE_SYNC_DATA));
+    setAdaptiveSync.version = NV_SET_ADAPTIVE_SYNC_DATA_VER;
     setAdaptiveSync.bDisableAdaptiveSync = 1;
     NvAPI_DISP_SetAdaptiveSyncData(displayID, &setAdaptiveSync);
 }
@@ -91,7 +99,8 @@ vblankTimeout()
 {
     while (1) {
     WaitForSingleObject(hTimer, INFINITE);
-    resetAdaptiveSync();
+    disableFrameSplitting();
+    disableAdaptiveSync();
     //EscapeCommFunction(hComm, SETRTS);
     //EscapeCommFunction(hComm, CLRRTS);
     }

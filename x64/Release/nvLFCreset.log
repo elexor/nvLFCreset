@@ -1,0 +1,8 @@
+﻿  nvLFCreset.cpp
+C:\Users\Brett\source\repos\nvLFCresetGIT\nvLFCreset.cpp(216,20): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
+C:\Users\Brett\source\repos\nvLFCresetGIT\nvLFCreset.cpp(305,23): warning C4244: 'initializing': conversion from 'LRESULT' to 'UINT', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 42 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  nvLFCreset.vcxproj -> C:\Users\Brett\Source\Repos\nvLFCresetGIT\x64\Release\nvLFCreset.exe
